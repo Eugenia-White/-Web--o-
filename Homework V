@@ -1,0 +1,28 @@
+require 'json'
+
+file_path = 'users.json'
+
+begin
+  file = File.read(file_path)
+  users = JSON.parse(file)
+
+  total_age = 0
+
+  puts "Користувачі:"
+  users.each do |user|
+    name = user["ім'я"].strip
+    age = user["вік"].to_i
+    total_age += age
+    puts "Name: #{name}, Age: #{age}"
+  end
+
+  if users.any?
+    average_age = total_age.to_f / users.size
+    puts "\nСередній вік: #{average_age.round(2)}"
+  end
+
+rescue Errno::ENOENT
+  puts "Файл #{file_path} не знайдено."
+rescue JSON::ParserError
+  puts "Помилка при розборі JSON."
+end
