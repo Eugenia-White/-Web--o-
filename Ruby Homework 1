@@ -1,0 +1,29 @@
+def perform_calculations(num1, num2)
+  puts "Виконуємо арифметичні дії з числами #{num1} та #{num2}:"
+  sum = num1 + num2
+  puts "Додавання: #{num1} + #{num2} = #{sum}"
+  difference = num1 - num2
+  puts "Віднімання: #{num1} - #{num2} = #{difference}"
+  product = num1 * num2
+  puts "Множення: #{num1} * #{num2} = #{product}"
+
+  if num2 != 0
+    quotient = num1.to_f / num2.to_f # Використовуємо .to_f для отримання результату з плаваючою точкою
+    puts "Ділення: #{num1} / #{num2} = #{quotient}"
+  else
+    puts "Ділення: Неможливо поділити на нуль!"
+  end
+end
+puts "Введіть перше число:"
+number1 = gets.chomp.to_i
+
+puts "Введіть друге число:"
+number2 = gets.chomp.to_i
+
+perform_calculations(number1, number2)
+
+puts "\nСпробуємо з іншими числами:"
+perform_calculations(10, 3)
+
+puts "\nПриклад ділення на нуль:"
+perform_calculations(5, 0)
