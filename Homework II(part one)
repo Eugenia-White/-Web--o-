@@ -1,0 +1,14 @@
+def most_frequent_elements(arr)
+  frequency = Hash.new(0)
+
+  arr.each { |num| frequency[num] += 1 }
+
+  max_freq = frequency.values.max
+
+  most_frequent = frequency.select { |_, v| v == max_freq }.keys
+
+  puts "Most frequent element(s): #{most_frequent.join(', ')}"
+end
+
+array = [4, 4, 5, 6, 6, 5, 4, 5, 8, 1, 7]
+most_frequent_elements(array)
