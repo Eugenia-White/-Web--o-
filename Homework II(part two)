@@ -1,0 +1,19 @@
+def to_pig_latin(sentence)
+  words = sentence.split(/\b/)
+
+  pig_latin_words = words.map do |word|
+    if word =~ /^[a-zA-Z]+$/  
+      first_letter = word[0]
+      rest = word[1..-1]
+      "#{rest}#{first_letter}ay"
+    else
+      word  # leave punctuation or whitespace unchanged
+    end
+  end
+
+  pig_latin_sentence = pig_latin_words.join
+  puts "Pig Latin: #{pig_latin_sentence}"
+end
+
+sentence = "I love Ruby programming!"
+to_pig_latin(sentence)
